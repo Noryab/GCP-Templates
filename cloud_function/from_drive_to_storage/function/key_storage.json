@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kiosko-375015",
+  "private_key_id": "a336a9a8b8b4cb92b1139fc9cfdb27b555b939dc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyvc8BZKAk+qmE\nClWRxfNgI5t9ghxgIcgloy6xRSGFRUsmmsvjE1VUpulZnb6dgfK9dUhEWHVMfq20\nSyhPJZ2O0bqYnIcvIIQtTaI7x1iBnk8Eg0hZZsKdgn6nnYZ/m3hV9NhxuiqP3RV4\nyx9x287gwJEZtCE/aN4jK6rdvWI5CZELwactWfy3vTLVybeq64o5WjCeZZNgD2QA\nC4KXD9964hNyb6W0H0q/F0Gc7cjnnA3NhhORoPT1/RgCPoZjG64AXvv0ASA4Imeu\nysDwljToxmrTHrdl6/dvCs7aDZuI2yS7W1vm5qs8Q+upi4zpWqTpLjPb988rIu3s\nzN7wz8UPAgMBAAECggEACa//6DNr+pUbWuy0dpIj/rHvW34Ry6QJFQEjJrh4eKCo\n0g7RvhzuIwho3VKPYjoIzfvtTsb8lIjJIVxxcti3EWaMlnjlWsiIYWwzvsmvIldS\nMQxsf2vyYFcSRkNjZscmXoJGuOM+K03wO/vGWIVxUP0e4CXDJ4ynfYCAYkRBbpXe\nxL0/IibI2thxKs66ZyUJNRgQIKgTTFi3F50QIBRS+CTGlz/7qq8PykOB1igCDgyf\nIjKenXz1wDUn/IP1GEzsklJ1vB1zKIRvGB063ZO/Kul3fSa+zbynDwtgAKchVK5U\nd/ZRwI6GHchHZb/T1nibryMRG8xo0fSubfpiPoYyAQKBgQDzf0F4RYbhM81G1+cK\nIrFMilZOJpMPBZ5B9PPIZZpnfBqNwW+jF7Zt0qdI0h8uLLlGBeX4cOPOmumEV8b0\nJDzYACaf/vIJYuPbEIhKW+9lVrKaKq6YO/rRSt82R/TQvDsXq0P8UeAb85dtpbRo\nkO57lpTYIUneQ48WEgoVmo7FqQKBgQC761iyaI0gArDJKbZ7hfYt9mtKxsx3WZN6\nz/t+b2iQd01hE7KJ6g0CTje/l1vZt4WT+RWrQ6cBqLRtfclUPrmVeoYxZK9uCuU1\nOjNB6O6KemRc3Zw7q2ww1G1k9w9siut/7LgdW1kbFOXGzkZOjuB5fDPc9tKCUdkB\nLScYQzH39wKBgQCBsadSg13bN7c/46GY4W+kQA7GI3+ywaBQq0Lp20xJkG2oUX6/\n1NKDXm9htyGKe6HXbS7XjHGaSyLULdi3k1GhDzuDfsy2OSj6Nq0RRjSVun745IEI\nbvIiZgnMJLl+MLQc4Eke7RE8chuW+GrGQ2PzCfqPv/NTYpKlA8jBRwiCuQKBgEe+\noZ1ztzWacV5L86STT5rasrnYzmVeqKTB1RW/eR92vO8sMwTee9r+e+BE7Edh/riw\n52n8qT1D6KbI2F22mOoN3j/rXeLYfAvnTXyDbtclxT2DSkupteOqpp1eid/55dFw\nUha7MnjZcKSHSmZhvCgFmFNrVJF2qC//yiZEOUafAoGBAOIw93N/hoOeXPcUfHZc\nKOIuEtNnMdgNFlQQibYwIA60SAY0wGtgzUbCFMY506Jf5k4ThzMtsHU2ShsNjdql\nG92mCjlgAiOFZpp7Y1MbLDBfCHqoR6BmavDomudqwPOKd2YSs0hZt57BOsh9Y6+I\n+kPgwgVFMH86iHYj+1dvy91M\n-----END PRIVATE KEY-----\n",
+  "client_email": "storage@kiosko-375015.iam.gserviceaccount.com",
+  "client_id": "110811134219469044132",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storage%40kiosko-375015.iam.gserviceaccount.com"
+}
