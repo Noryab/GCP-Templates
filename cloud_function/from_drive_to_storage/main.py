@@ -1,4 +1,3 @@
-from function import init_function
 from function.function import FromDriveToStorage
 
 

@@ -4,7 +4,16 @@ import inspect
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class ConfigBase:
-    SCOPES = ['https://www.googleapis.com/auth/drive']
+    SCOPES = [                
+        'https://www.googleapis.com/auth/drive',
+        'https://www.googleapis.com/auth/drive.file',
+        'https://www.googleapis.com/auth/drive.readonly',
+        'https://www.googleapis.com/auth/drive.metadata.readonly',
+        'https://www.googleapis.com/auth/drive.appdata',
+        'https://www.googleapis.com/auth/drive.metadata',
+        'https://www.googleapis.com/auth/drive.photos.readonly',
+    ]
+
     DEBUG=True
     
 

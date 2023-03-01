@@ -42,11 +42,14 @@ class Drive:
         file_to_download = None
         # objects_list = get_blobs()
         # while True:
-        #     response = self.service.files().list(
+        # response = self.service.files().list(
         #                                         q=f"mimeType != 'application/vnd.google-apps.folder'",
         #                                         fields = 'nextPageToken, ''files(id,name)',
         #                                         pageToken=page_token
         #                                     ).execute()
+        response = self.service.files().list().execute()
+
+        print(response.get("files",[]))
         #     for file in response.get('files', []):
         #         print(F'Found file: {file.get("name")}, {file.get("id")}')
         #         file_id = file.get("id")
