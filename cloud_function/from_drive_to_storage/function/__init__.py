@@ -24,8 +24,7 @@ config = config_env[CONFIG_ENV]
 #     creds = service_account.Credentials.from_service_account_file('/home/portfolio/GCP-Templates/cloud_function/from_drive_to_storage/function/key_storage.json') # If you're using local machine    
 #     scoped_credentials = creds.with_scopes(config.SCOPES)    
 # else:
-creds, _ = google.auth.default()
-scoped_credentials = creds.with_scopes(config().SCOPES)
+credentials, project = google.auth.default(scopes=config().SCOPES)
 
 
-FromDriveToStorage(config, creds=creds, scoped_credentials=scoped_credentials)
+FromDriveToStorage(config, credentials=credentials)
