@@ -5,7 +5,7 @@ from function.drive import Drive
 class FromDriveToStorage:
     
     def __init__(self, config, creds=None, scoped_credentials=None) -> None:
-        Drive(config().to_dict(), scoped_credentials=scoped_credentials)    
+        Drive(config=config().to_dict(), scoped_credentials=scoped_credentials)    
         # Storage(config().to_dict(), creds=creds)
 
     @classmethod

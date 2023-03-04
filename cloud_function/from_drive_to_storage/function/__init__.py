@@ -25,7 +25,7 @@ config = config_env[CONFIG_ENV]
 #     scoped_credentials = creds.with_scopes(config.SCOPES)    
 # else:
 creds, _ = google.auth.default()
-scoped_credentials = creds.with_scopes(config.SCOPES)
+scoped_credentials = creds.with_scopes(config().SCOPES)
 
 
 FromDriveToStorage(config, creds=creds, scoped_credentials=scoped_credentials)
