@@ -1,11 +1,10 @@
 import os 
 import google.auth
 
-# from google.oauth2 import service_account
 
 from config import config_env
-
 from function.function import  FromDriveToStorage
+# from google.oauth2 import service_account
 import google.auth
 
 # Create credentials with Drive & BigQuery API scopes.

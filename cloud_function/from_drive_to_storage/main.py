@@ -6,6 +6,3 @@ def function_gcp():
 
 if __name__ == "__main__":
     function_gcp()
-    # drive = Drive()
-    # storage = StorageGCP()
-    # storage.upload_to_bucket(drive.search_file())
