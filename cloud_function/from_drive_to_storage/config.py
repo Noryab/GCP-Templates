@@ -25,23 +25,20 @@ class ConfigBase:
         'https://www.googleapis.com/auth/drive.metadata',
         'https://www.googleapis.com/auth/drive.photos.readonly',
     ])
-
+    TOKEN_URI: str ="https://www.googleapis.com/oauth2/v3/token"
+    CLIENT_ID: str = '318040672941-jbi4pi3rhckhlcpv5cp32v0c01lofqml.apps.googleusercontent.com'
+    CLIENT_SECRET: str = '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'
+    REFRESH_TOKEN: str = '1//05xsP12DEWZXZCgYIARAAGAUSNwF-L9Ir4drRlGPutBcs38_SMPutB59uYVTeq0stwntC9ltYGSduWT5BZ1UJl6VUk1L5R4GDDrs'
+    TOKEN: str = ""
     DEBUG: bool =True
     
 
 @dataclasses.dataclass
 class LocalConfig(ConfigBase):    
-
-    name: str= field(default=None)    
-    active: str= field(default=1)    
-    catalog: float= field(default=None)    
-    values: str= field(default=None)        
-    uid: str = field(default=None)        
-
-    BUCKET_NAME: str ="files_from_drive"
-    DRIVE_PATH="files_to_storage"
-    PROJECT_NAME="portfolio"
     
+    BUCKET_NAME: str ="files_from_drive"
+    DRIVE_PATH: str="files_to_storage"
+    PROJECT_NAME: str ="portfolio"  
     
     @classmethod
     def from_dict(self, d):
@@ -57,16 +54,10 @@ class LocalConfig(ConfigBase):
 
 @dataclasses.dataclass
 class DevelopmentConfig(ConfigBase):  
-        
-    name: str= field(default=None)    
-    active: str= field(default=1)    
-    catalog: float= field(default=None)    
-    values: str= field(default=None)        
-    uid: str = field(default=None)        
-
-    BUCKET_NAME: str ="files_from_drive"
-    DRIVE_PATH="files_to_storage"
-    PROJECT_NAME="portfolio"
+            
+    BUCKET_NAME: str ="bucket_drive_portfolio"
+    DRIVE_PATH: str="files_to_storage"
+    PROJECT_NAME: str ="kiosko-375015"  
            
 
     @classmethod
@@ -81,11 +72,12 @@ class DevelopmentConfig(ConfigBase):
 
         return self(**d)
 
-
+@dataclasses.dataclass
 class ProductionConfig(ConfigBase):    
-    BUCKET_NAME=""
-    DRIVE_PATH=""
-    PROJECT_NAME=""
+
+    BUCKET_NAME: str ="files_from_drive"
+    DRIVE_PATH: str="files_to_storage"
+    PROJECT_NAME: str ="portfolio"  
 
     DEBUG=False
 

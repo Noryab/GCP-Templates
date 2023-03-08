@@ -4,16 +4,16 @@ import io
 import dataclasses
 from dataclasses import dataclass, field
 from googleapiclient.discovery import build
-from googleapiclient.http import MediaIoBaseDownload
-from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from oauth2client import client, file, tools
+from google.oauth2.credentials import Credentials
 
 
 @dataclass
 class Drive:
     service: object = field(default=None)
     credentials: object = field(default=None)
+    config: object = field(default_factory={})
+    
 
     @classmethod    
     def update(cls, key, value):
@@ -25,21 +25,24 @@ class Drive:
                 self.update(key, dictionary[key])
         for key in kwargs:
             self.update( key, kwargs[key])
-
-        if self.credentials:
-            self.update('service', self._get_gdrive_service())        
-            # object.__setattr__(self, 'service', build('drive', 'v3', credentials=self.scoped_credentials))        
+        
+        self._get_gdrive_service()
 
     def _get_gdrive_service(self):
-
-        service = build('drive', 'v3', credentials=self.credentials)        
-        return service
-
-
+        self.credentials = Credentials(
+            token=self.config["TOKEN"],
+            refresh_token=self.config["REFRESH_TOKEN"],
+            token_uri=self.config["TOKEN_URI"],
+            client_id=self.config["CLIENT_ID"],
+            client_secret=self.config["CLIENT_SECRET"],
+        )
+        self.credentials.refresh(Request())
+        self.config["TOKEN"] = self.credentials.token                                        
+        self.update('service', build('drive', 'v3', credentials=self.credentials))                    
+        
 
     def to_dict(self):
-        return dataclasses.asdict(self)
-        return dataclasses.asdict(self, dict_factory=lambda x: {k: v for (k, v) in x if v is not None})
+        return dataclasses.asdict(self)        
 
 
     @classmethod
@@ -58,6 +61,7 @@ class Drive:
         response = self.service.files().list().execute()
 
         print(response.get("files",[]))
+        return response
         #     for file in response.get('files', []):
         #         print(F'Found file: {file.get("name")}, {file.get("id")}')
         #         file_id = file.get("id")
