@@ -20,9 +20,14 @@ class FromDriveToStorage:
     def run(cls,):
         files = []        
         page_token = None
+        
+        filetype = "text/csv"
+        query=f"(modifiedTime > '{cls.last_run}T12:00:00') AND (mimeType='{filetype}')"
+        print(query)
         while True:
-            response = Drive.search_files(page_token=page_token)            
-
+            response = Drive.search_files(query=query,page_token=page_token)          
+            print(response)  
+            
             for file in  response.get('files', []):
                 print(F'Found file: {file.get("name")}, {file.get("id")}, {file.get("modifiedTime")}')
                 modified_time = file.get("modifiedTime")

@@ -48,9 +48,9 @@ class Drive:
         type(self).service = build('drive', 'v3', credentials=self.credentials.get_credentials())
     
     @classmethod
-    def search_files(cls, page_token):
+    def search_files(cls, query=None, page_token=None):
         try:
-            return cls.service.files().list(q=f"mimeType != 'application/vnd.google-apps.folder'",
+            return cls.service.files().list(q=query,
                                                 fields = 'nextPageToken, ''files(id, name, mimeType, modifiedTime)',
                                                 pageToken=page_token).execute()
             
