@@ -6,16 +6,8 @@ from dataclasses import dataclass, field
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-
-import inspect
-import io
-
-import dataclasses
-from dataclasses import dataclass, field
-from googleapiclient.discovery import build
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
 from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaIoBaseDownload
 
 
 @dataclass
@@ -56,13 +48,26 @@ class Drive:
         type(self).service = build('drive', 'v3', credentials=self.credentials.get_credentials())
     
     @classmethod
-    def search_files(cls):
+    def search_files(cls, page_token):
         try:
-            response = cls.service.files().list().execute()
-            return response
+            return cls.service.files().list(q=f"mimeType != 'application/vnd.google-apps.folder'",
+                                                fields = 'nextPageToken, ''files(id, name, mimeType, modifiedTime)',
+                                                pageToken=page_token).execute()
+            
         except HttpError as error:
             print(f'An error occurred: {error}')
             return None
+
+    @classmethod
+    def download_file_by_id(cls, file_id):
+        request = cls.service.files().get_media(fileId=file_id)
+        file_download_buffer = io.BytesIO()
+        downloader = MediaIoBaseDownload(file_download_buffer, request)
+        done = False
+        while done is False:
+            status, done = downloader.next_chunk()
+            print(F'Download {int(status.progress() * 100)}.')
+        return file_download_buffer
 
     def to_dict(self):
         return dataclasses.asdict(self)

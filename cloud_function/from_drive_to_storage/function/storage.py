@@ -38,3 +38,8 @@ class Storage:
             file_name = file["file_name"]
             blob = Blob(file_name, self.bucket)
             blob.upload_from_file(file, rewind=True)
+    
+    @classmethod
+    def upload_file_to_bucket(cls, file, file_name):                
+        blob = Blob(file_name, cls.bucket)
+        blob.upload_from_file(file, rewind=True)

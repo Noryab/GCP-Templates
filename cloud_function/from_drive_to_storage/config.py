@@ -1,17 +1,21 @@
 import copy
 import dataclasses
 import inspect
+import json
 import os
 
 from dataclasses import field
 from typing import List
-from typing import Dict
-from typing import Tuple
 
 def default_field(obj):
     return field(default_factory=lambda: copy.copy(obj))
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+# Opening JSON file
+json_file = open(os.path.join(basedir, "credentials.json"))  
+data = json.load(json_file)
+
 
 @dataclasses.dataclass
 class ConfigBase:
@@ -25,11 +29,12 @@ class ConfigBase:
         'https://www.googleapis.com/auth/drive.metadata',
         'https://www.googleapis.com/auth/drive.photos.readonly',
     ])
-    TOKEN_URI: str ="https://www.googleapis.com/oauth2/v3/token"
-    CLIENT_ID: str = '318040672941-jbi4pi3rhckhlcpv5cp32v0c01lofqml.apps.googleusercontent.com'
-    CLIENT_SECRET: str = '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'
-    REFRESH_TOKEN: str = '1//05xsP12DEWZXZCgYIARAAGAUSNwF-L9Ir4drRlGPutBcs38_SMPutB59uYVTeq0stwntC9ltYGSduWT5BZ1UJl6VUk1L5R4GDDrs'
+    TOKEN_URI: str =data["installed"]["token_uri"]
+    CLIENT_ID: str = data["installed"]["client_id"]
+    CLIENT_SECRET: str = data["installed"]["client_secret"]
+    REFRESH_TOKEN: str = data["installed"]["refresh_token"]
     TOKEN: str = ""
+    SERVICE_ACCOUNT=True
     DEBUG: bool =True
     
 
